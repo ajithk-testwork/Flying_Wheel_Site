@@ -263,7 +263,7 @@ export default function AboutPageClient() {
           <div className="relative h-[280px] overflow-hidden bg-[#e9e8e2] sm:h-[430px] lg:h-[610px]">
 
             <Photo
-              src={images.hero || images.newest}
+               src={images.newest}
               alt="Cycling adventure"
               className="h-full w-full"
               priority

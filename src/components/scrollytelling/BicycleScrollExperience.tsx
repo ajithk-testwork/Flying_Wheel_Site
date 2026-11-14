@@ -225,7 +225,9 @@ export default function BicycleScrollExperience() {
       },
     );
 
-    return () => animation.kill();
+    return () => {
+      animation.kill();
+    };
   }, [activeChapter, isReady, current.align]);
 
   if (!isReady && !loadError) {
