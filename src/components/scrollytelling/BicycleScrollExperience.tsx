@@ -333,29 +333,6 @@ export default function BicycleScrollExperience() {
             {current.description}
           </p>
 
-          {activeChapter === chapters.length - 1 && (
-            <div
-              style={{ marginTop: "22px" }}
-              className="flex flex-wrap justify-center items-center gap-4"
-            >
-              <Link
-                href="/shop"
-                style={primaryButtonStyle}
-                className="rounded-full bg-[#F6BD12] text-[11px] font-extrabold tracking-[0.14em] text-[#171717] hover:bg-white transition-all"
-              >
-                SHOP THE COLLECTION
-              </Link>
-
-              <button
-                type="button"
-                onClick={() => goToChapter(0)}
-                style={primaryButtonStyle}
-                className="rounded-full border border-white px-7 text-[11px] font-extrabold tracking-[0.14em] text-white hover:bg-white hover:text-black transition-all"
-              >
-                REPLAY EXPERIENCE
-              </button>
-            </div>
-          )}
 
           {activeChapter === chapters.length - 1 && (
             <div
