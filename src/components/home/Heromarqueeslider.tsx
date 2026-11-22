@@ -21,7 +21,7 @@ const FONT_WEIGHT = 700;
 const LETTER_SPACING = "-0.02em";
 const AUTOPLAY_GAP_MS = 3000;
 const SHOW_CAPTION = false;
-const RESPECT_REDUCED_MOTION = true;
+const RESPECT_REDUCED_MOTION = false;
 
 /* ==========================================
    SLIDER IMAGES

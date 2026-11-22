@@ -25,9 +25,9 @@ export async function preloadBicycleFrames(
         resolve(image);
       };
       image.onerror = () => {
-        reject(new Error(`Missing bicycle frame: ezgif-frame-${padded}.jpg`));
+        reject(new Error(`Missing bicycle frame: ezgif-frame-${padded}.webp`));
       };
-      image.src = `/sequences/bicycle/ezgif-frame-${padded}.jpg`;
+      image.src = `/sequences/bicycle/ezgif-frame-${padded}.webp`;
     });
 
   // Keep the original order so scroll progress maps to the correct frame.

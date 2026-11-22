@@ -41,7 +41,7 @@ const slides: Slide[] = [
     preview: "/images/hero/full-suspension-mtb.png",
     previewLabel: "BLAZE",
     previewTitle: "CARBON BRAKES",
-    button: "SHOP NOW",
+    button: "Enquiry",
   },
   {
     id: 2,
@@ -295,36 +295,7 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* RIGHT PREVIEW CARD */}
-      <div
-        ref={previewRef}
-        className="absolute right-[4%] top-[10%] z-40 hidden w-[150px] md:block lg:right-[5%] lg:top-[12%] lg:w-[185px] xl:w-[210px]"
-      >
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white shadow-sm">
-          <Image
-            key={activeSlide.preview}
-            src={activeSlide.preview}
-            alt={activeSlide.previewTitle}
-            fill
-            sizes="(max-width: 1024px) 155px, 210px"
-            className="object-contain object-center p-2"
-          />
-        </div>
-
-        <p
-          style={{ marginTop: "10px" }}
-          className="text-[10px] font-semibold uppercase tracking-wider text-[#C49300] sm:text-xs"
-        >
-          {activeSlide.previewLabel}
-        </p>
-
-        <p
-          style={{ marginTop: "4px" }}
-          className="break-words text-sm font-bold uppercase leading-snug text-[#171717] lg:text-base"
-        >
-          {activeSlide.previewTitle}
-        </p>
-      </div>
+    
 
       {/* PREVIOUS ARROW */}
       <button

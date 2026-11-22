@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
   Warm White     #F7F6F1
 */
 
-const TOTAL_FRAMES = 50;
+const TOTAL_FRAMES = 100;
 
 const chapters = [
   {
@@ -259,6 +259,12 @@ export default function BicycleScrollExperience() {
         ? "right-6 text-right sm:right-12 lg:right-[8%]"
         : "left-1/2 -translate-x-1/2 text-center";
 
+  // Dynamic vertical position for each chapter
+  const textTop =
+    activeChapter === chapters.length - 1
+      ? "top-[10%] sm:top-[12%]"
+      : "top-[20%] sm:top-[26%]";
+
   const textWidth = current.align === "center" ? "max-w-4xl" : "max-w-[520px]";
 
   const descriptionAlign =
@@ -287,11 +293,6 @@ export default function BicycleScrollExperience() {
           />
         </div>
 
-        {/* Readability overlays (charcoal instead of pure black) */}
-        <div className="pointer-events-none absolute inset-0 z-10 bg-[#171717]/15" />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(23,23,23,.66)_0%,rgba(23,23,23,.28)_38%,rgba(23,23,23,.05)_70%,rgba(23,23,23,.25)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(0deg,rgba(23,23,23,.88)_0%,transparent_27%,transparent_75%,rgba(23,23,23,.28)_100%)]" />
-
         {/* Small brand marker, placed below the floating site navbar */}
         <div className="absolute right-6 top-[112px] z-30 flex items-center gap-2 text-[9px] font-semibold tracking-[0.22em] text-white/60 sm:right-10">
           <span className="h-1.5 w-1.5 rounded-full bg-[#F6BD12]" />
@@ -302,13 +303,26 @@ export default function BicycleScrollExperience() {
         <div
           key={activeChapter}
           ref={storyRef}
-          className={`absolute top-[26%] z-20 w-[min(86%,560px)] ${textPosition} ${textWidth}`}
+          className={`absolute ${textTop} z-20 w-[min(92%,900px)] ${textPosition} ${textWidth}`}
         >
           <p className="mb-4 text-[9px] font-bold uppercase tracking-[0.32em] text-[#F6BD12] sm:text-[11px]">
             {current.label}
           </p>
 
-          <h1 className="font-[var(--font-bebas)] text-[clamp(2.8rem,7.2vw,7rem)] leading-[0.88] tracking-[-0.025em] text-white [text-shadow:0_5px_35px_rgba(0,0,0,.75)]">
+          <h1
+            className={`
+    font-[var(--font-bebas)]
+    ${
+      activeChapter === chapters.length - 1
+        ? "text-[clamp(2.8rem,5.5vw,5.5rem)]"
+        : "text-[clamp(2.8rem,7.2vw,7rem)]"
+    }
+    leading-[0.95]
+    tracking-[-0.025em]
+    text-white
+    [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]
+  `}
+          >
             {current.headline}
           </h1>
 
@@ -319,25 +333,26 @@ export default function BicycleScrollExperience() {
             {current.description}
           </p>
 
-          {activeChapter === 0 && (
+          {activeChapter === chapters.length - 1 && (
             <div
-              style={{ marginTop: "28px" }}
-              className="flex flex-wrap justify-center gap-3"
+              style={{ marginTop: "22px" }}
+              className="flex flex-wrap justify-center items-center gap-4"
             >
               <Link
                 href="/shop"
                 style={primaryButtonStyle}
-                className="rounded-full bg-[#F6BD12] text-[11px] font-extrabold tracking-[0.14em] text-[#171717] hover:bg-white"
+                className="rounded-full bg-[#F6BD12] text-[11px] font-extrabold tracking-[0.14em] text-[#171717] hover:bg-white transition-all"
               >
-                EXPLORE BIKES
+                SHOP THE COLLECTION
               </Link>
+
               <button
                 type="button"
-                onClick={() => goToChapter(1)}
+                onClick={() => goToChapter(0)}
                 style={primaryButtonStyle}
-                className="rounded-full border border-white/50 text-[11px] font-extrabold tracking-[0.14em] text-white hover:border-[#F6BD12] hover:text-[#F6BD12]"
+                className="rounded-full border border-white px-7 text-[11px] font-extrabold tracking-[0.14em] text-white hover:bg-white hover:text-black transition-all"
               >
-                DISCOVER MORE
+                REPLAY EXPERIENCE
               </button>
             </div>
           )}
